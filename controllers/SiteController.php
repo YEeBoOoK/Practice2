@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Problem;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $problems = Problem::find()->where(['status' => 'Решена'])->orderBy(['date' => SORT_DESC])->limit(4)->all();
+        return $this->render('index',
+        ['problems' => $problems]);
     }
 
     /**
@@ -124,5 +127,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionCounter()
+    {
+        $problems = Problem::find()->where(['status' => 'Решена'])->orderBy(['date' => SORT_DESC])->all();
+        return Yii::$app->response->content = count($problems);
     }
 }

@@ -1,10 +1,23 @@
+/* Импортируем шрифт и прописываем строчки в site.css */
+@font-face {
+    font-family: 'pkgh';
+    src: url('/web/fonts/17642.ttf') format('truetype');
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'pkgh', sans-serif;;
+}
+
 main > .container {
     padding: 70px 15px 20px;
+    font-family: 'pkgh', sans-serif;;
 }
 
 .footer {
     background-color: #f5f5f5;
     font-size: .9em;
+    font-family: 'pkgh', sans-serif;;
     height: 60px;
 }
 
@@ -16,6 +29,7 @@ main > .container {
 .not-set {
     color: #c55;
     font-style: italic;
+    font-family: 'pkgh', sans-serif;;
 }
 
 /* add sorting icons to gridview sort links */
@@ -56,12 +70,14 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+    font-family: 'pkgh', sans-serif;;
 }
 
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding-top: 7px;
     color: rgba(255, 255, 255, 0.5);
+    font-family: 'pkgh', sans-serif;
 }
 
 @media(max-width:767px) {
@@ -81,4 +97,14 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+    font-family: 'pkgh', sans-serif;
+}
+
+img.scale {
+    transition: 1s;
+}
+
+img.scale:hover {
+    transform: scale(1.05);
+    overflow: hidden;
 }
